@@ -50,24 +50,21 @@ namespace Shockpile
                 if (fileExtension != ".cst")
                     continue;
 
-                if (fileName == "hh_room_pool")
+                string outputDirectory = Path.Combine(projectraysDirectory, fileName);
+
+                if (!Directory.Exists(outputDirectory))
                 {
-                    string outputDirectory = Path.Combine(projectraysDirectory, fileName);
-
-                    if (!Directory.Exists(outputDirectory))
-                    {
-                        Process p = new Process();
-                        p.StartInfo.WorkingDirectory = projectraysDirectory;
-                        p.StartInfo.FileName = node;
-                        p.StartInfo.Arguments = "bin/index.js \"" + fullFileName + "\"";
-                        p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                        p.Start();
-                        p.WaitForExit();
-                    }
-
-
-                    PerformCleanup(fullFileName, fileName, outputDirectory, srcDirectory);
+                    Process p = new Process();
+                    p.StartInfo.WorkingDirectory = projectraysDirectory;
+                    p.StartInfo.FileName = node;
+                    p.StartInfo.Arguments = "bin/index.js \"" + fullFileName + "\"";
+                    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    p.Start();
+                    p.WaitForExit();
                 }
+
+
+                PerformCleanup(fullFileName, fileName, outputDirectory, srcDirectory);
             }
         }
 
