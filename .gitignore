@@ -1,0 +1,8 @@
+obj/
+TcpLogger.csproj.user
+bin/
+bin/Debug/packet.log
+bin/Debug/TcpLogger.exe
+bin/Debug/TcpLogger.pdb
+.vs/TcpLogger/v15/.suo
+.vs/
