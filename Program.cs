@@ -14,7 +14,7 @@ namespace Shockpile
         {
             string node = @"C:\Program Files\nodejs\node.exe";
             string projectraysDirectory = @"C:\Users\Alex\Documents\Decompiler\ProjectorRays";
-            string cstDirectory = @"C:\Users\Alex\Documents\Decompiler\v7";
+            string cstDirectory = @"C:\Users\Alex\Documents\Decompiler\v26";
             string srcDirectory = Path.Combine(cstDirectory, "src");//@"C:\Users\Alex\Documents\Decompiler\v7\src";
 
             if (!Directory.Exists(projectraysDirectory))
@@ -142,10 +142,8 @@ namespace Shockpile
                     Directory.CreateDirectory(newDirectory);
                 }
 
-
                 Directory.Move(outputDirectory, newDirectory);
             }
-
 
             Console.WriteLine("Processed " + fileName);
         }
