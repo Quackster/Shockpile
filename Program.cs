@@ -13,8 +13,8 @@ namespace Shockpile
         static void Main(string[] args)
         {
             string node = @"C:\Program Files\nodejs\node.exe";
-            string projectraysDirectory = @"C:\Users\Alex\Documents\Decompiler\ProjectorRays";
-            string cstDirectory = @"C:\Users\Alex\Documents\Decompiler\v26";
+            string projectraysDirectory = @"C:\Users\Alex\Documents\GitHub\ProjectorRays";
+            string cstDirectory = @"C:\Users\Alex\Documents\habbo_swclient_src\v21\src";
             string srcDirectory = Path.Combine(cstDirectory, "src");//@"C:\Users\Alex\Documents\Decompiler\v7\src";
 
             if (!Directory.Exists(projectraysDirectory))
@@ -59,12 +59,12 @@ namespace Shockpile
                     p.StartInfo.FileName = node;
                     p.StartInfo.Arguments = "bin/index.js \"" + fullFileName + "\"";
                     p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    p.StartInfo.CreateNoWindow = true;
                     p.Start();
                     p.WaitForExit();
                 }
 
-
-                PerformCleanup(fullFileName, fileName, outputDirectory, srcDirectory);
+                    PerformCleanup(fullFileName, fileName, outputDirectory, srcDirectory);
             }
         }
 
